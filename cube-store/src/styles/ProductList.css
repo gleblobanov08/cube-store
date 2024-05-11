@@ -1,0 +1,97 @@
+.card-info {
+    margin: 10px;
+    padding: 20px 0;
+    border: 1px solid black;
+    border-radius: 5px;
+    img {
+        height: 200px;
+        width: 200px;
+    }
+    button {
+        align-self: center;
+        text-transform: uppercase;
+        margin-left: 30px;
+        padding: 8px 10px;
+        height: 30px;
+        border-radius: 10px;
+        background-color: rgb(101, 101, 255);
+        color: white;
+    }
+    .detail-info {
+        display: flex;
+        justify-content: space-evenly;
+    }
+}
+
+.button {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #000
+}
+.active {
+    background-color: #000;
+    color: #fff;
+}
+
+@media only screen and (max-width: 768px) {
+    .products {
+        margin: 20px auto;
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        .card-info {
+            font-size: 14px;
+            height: 300px;
+        }
+    }
+}
+@media only screen and (min-width: 768px) {
+    .products {
+        margin: 0 auto;
+        width: 90%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        justify-content: center;
+        .card-info {
+            font-size: 16px;
+            padding: 20px;
+            height: 300px;
+            position: relative;
+            img {
+            height: 120px;
+            width: 120px;
+            }
+            .detail-info {
+                position: absolute;
+                bottom: 0;
+            }
+        }
+    }
+    .news {
+        width: 100%;
+        .news-grid {
+            width: 70%;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
+            justify-items: center;
+            h3 {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.pagination button {
+    border: 1px solid blue;
+    border-radius: 10%;
+    background: none;
+    outline: none;
+    padding: 10px;
+    margin: 0 5px;
+}
