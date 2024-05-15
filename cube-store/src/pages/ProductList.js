@@ -34,7 +34,7 @@ export default function ProductList () {
       <img src={product.img[0]} alt="grid img" />
       <h2>{product.name}</h2>
       <div className="detail-info">
-        <h3>$ {product.price}<sup>99</sup></h3>
+        <h2>$ {product.price}<sup>99</sup></h2>
         <button>buy now</button>
       </div>
     </div>

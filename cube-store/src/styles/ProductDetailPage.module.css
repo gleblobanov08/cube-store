@@ -1,6 +1,15 @@
-.img {
-    width: 400px;
-    height: 400px;
+@media screen and (max-width: 768px) {
+    .img {
+        margin: 0 auto;
+        width: 70%;
+        height: 70%;
+    }
+}
+@media screen and (min-width: 768px) {
+    .img {
+        width: 400px;
+        height: 400px;
+    }
 }
 
 .extrasDiv {
