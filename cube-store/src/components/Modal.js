@@ -15,6 +15,7 @@ export default function Modal({ isOpen, onClose, message }) {
   }
   const contentStyle = {
     width: '40%',
+    margin: '0 auto',
     padding: 20,
     border: '1px dotted black',
     borderRadius: 20,

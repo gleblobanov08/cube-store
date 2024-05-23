@@ -30,20 +30,24 @@ export default function CartPage() {
         <>
         {cartItems.map((item, index) => (
           <div className={styles.cartItem} key={index}>
+            <div className={styles.cartGrid}>
+              <div>
+              <img src={item.product.img[0]} alt='cartimg' />
+              </div>
+              <div>
+              <h4>{item.product.name} <br/><br/> ${calculateTotalPrice(item)}</h4>
+              <ul>
+                {item.extras.map((extra, idx) => (
+                  extra.selected &&
+                  <>
+                  <li key={idx} style={{listStyleType: 'none', textAlign: 'left', paddingLeft: '20px'}}>+ {extra.name} (${extra.price})</li>
+                  </>
+                ))}
+              </ul>
+              </div>
+            </div><br/>
             <div>
-            <img src={item.product.img[0]} alt='cartimg' />
-            </div>
-            <div>
-            <h4>{item.product.name} <br/><br/> ${calculateTotalPrice(item)}</h4>
-            <ul>
-              {item.extras.map((extra, idx) => (
-                extra.selected &&
-                <li key={idx} style={{listStyleType: 'none'}}>+ {extra.name} (${extra.price})</li>
-              ))}
-            </ul>
-            </div>
-            <div>
-            <button onClick={() => removeFromCart(index)}><FontAwesomeIcon icon={faTrash} /></button>
+              <button onClick={() => removeFromCart(index)} style={{margin: "0 auto"}}><FontAwesomeIcon icon={faTrash} /></button>
             </div>
           </div>
         ))}
@@ -78,7 +82,6 @@ export default function CartPage() {
           <h3>Do you ship internationally?</h3>
           <p>Yes, we ship our products worldwide. However, please note that shipping times and fees may vary depending on your location.</p>
         </div>
-        {/* Add more FAQs here */}
       </div>
     </div>
     </section>
