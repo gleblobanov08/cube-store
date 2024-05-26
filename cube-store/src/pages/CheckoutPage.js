@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
-import { useCart } from '../components/CartContext';
 
 export default function CheckoutPage() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [emailValid, setEmailValid] = useState(true);
   const [emailErrorMessage, setEmailErrorMessage] = useState('');
-
-  const { clearCart } = useCart();
 
   const labelStyle = {
     width: '100%',
@@ -55,7 +52,6 @@ export default function CheckoutPage() {
     }
     setEmail('');
     setUsername('');
-    clearCart;
   };
 
   const emailStyle = () => {
