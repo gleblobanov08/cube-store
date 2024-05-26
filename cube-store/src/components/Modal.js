@@ -2,44 +2,68 @@ import React from 'react';
 
 export default function Modal({ isOpen, onClose, message }) {
   const overlayStyle = {
-    padding: 20,
     width: '100vw',
-    height: '100%',
+    height: '100vh',
     position: 'fixed',
     top: 0,
-    right: 0,
+    left: 0,
     background: 'rgba(236, 236, 236, 0.7)',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center'
-  }
+    alignItems: 'center',
+    zIndex: 1000,
+  };
+
   const contentStyle = {
-    width: '40%',
+    width: '80%',
+    maxWidth: '500px',
     margin: '0 auto',
-    padding: 20,
-    border: '1px dotted black',
-    borderRadius: 20,
+    padding: '20px',
+    border: '1px solid black',
+    borderRadius: '20px',
     background: 'white',
-    fontSize: '24px',
-    verticalAlign: 'middle',
-    position: 'relative'
-  }
+    color: 'black',
+    fontSize: '1.5rem',
+    position: 'relative',
+  };
+
   const buttonStyle = {
     position: 'absolute',
-    top: 10,
-    right: 10,
-    fontSize: 20,
+    top: '10px',
+    right: '10px',
+    fontSize: '20px',
     background: 'transparent',
     border: 'none',
-    color: 'black'
-  }
+    color: 'black',
+    cursor: 'pointer',
+  };
+
+  const responsiveFontSize = `
+    @media (max-width: 600px) {
+      .modal-content {
+        font-size: 1.2rem;
+      }
+    }
+    @media (min-width: 600px) and (max-width: 1200px) {
+      .modal-content {
+        font-size: 1.5rem;
+      }
+    }
+    @media (min-width: 1200px) {
+      .modal-content {
+        font-size: 2rem;
+      }
+    }
+  `;
+
   return (
     isOpen && (
       <div className="modal-overlay" style={overlayStyle} onClick={onClose}>
-        <div className="modal" style={contentStyle}>
+        <style>{responsiveFontSize}</style>
+        <div className="modal" style={contentStyle} onClick={(e) => e.stopPropagation()}>
           <div className="modal-content">
             <button onClick={onClose} style={buttonStyle}>X</button>
-            <p>{message}</p>
+            <p style={{color: 'black'}}>{message}</p>
           </div>
         </div>
       </div>

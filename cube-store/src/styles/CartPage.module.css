@@ -6,6 +6,7 @@
     border-radius: 15px;
     font-size: 20px;
     background-color: beige;
+    color: black;
     .cartGrid {
         display: grid;
         grid-template-columns: 2fr 3fr;
@@ -30,9 +31,9 @@ h3 a {
 }
 
 .resetBtn {
-    border: 2px solid black;
+    border: 2px solid var(--text-color);
     background-color: transparent;
-    color: black;
+    color: var(--text-color);
     font-size: 22px;
 }
 

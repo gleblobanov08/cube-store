@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import { useCart } from '../components/CartContext';
 
-function CheckoutPage() {
-  const [userName, setUserName] = useState('');
-  const [userEmail, setUserEmail] = useState('');
+export default function CheckoutPage() {
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [emailValid, setEmailValid] = useState(true);
+  const [emailErrorMessage, setEmailErrorMessage] = useState('');
+
+  const { clearCart } = useCart();
 
   const labelStyle = {
     width: '100%',
@@ -11,42 +16,72 @@ function CheckoutPage() {
   const inputStyle = {
     margin: '20px 0',
     padding: '10px 20px',
-    fontSize: 20,
+    borderColor: 'black',
+    fontSize: 20
   }
   const buttonStyle = {
     background: 'transparent',
     fontSize: 24,
   }
 
-  function handleUserName(e) {
-    setUserName(e.target.value);
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const handleUserNameChange = (e) => {
+    setUsername(e.target.value);
   }
-  function handleUserEmail(e) {
-    setUserEmail(e.target.value);
-  }
-  function handleSubmitClick() {
-    alert(`Order has been sent to ${userName}. You can see details on ${userEmail}`);
-    setUserEmail("")
-    setUserName("");
-  }
+  const handleEmailChange = (e) => {
+    const emailValue = e.target.value;
+    setEmail(emailValue);
+
+    if (validateEmail(emailValue)) {
+      setEmailValid(true);
+      setEmailErrorMessage('');
+    } else {
+      setEmailValid(false);
+      setEmailErrorMessage('Invalid email format.');
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (validateEmail(email)) {
+      alert('Checkout was "successful"! Now wait until we mail you.');
+    } else {
+      setEmailValid(false);
+      setEmailErrorMessage('Please enter a valid email address.');
+    }
+    setEmail('');
+    setUsername('');
+    clearCart;
+  };
+
+  const emailStyle = () => {
+    return {
+      ...inputStyle,
+      borderColor: emailValid ? 'initial' : 'red' 
+    };
+  };
+
   return (
-    <>
-      <div>
-        <h2>Confirm your order</h2>
-        <form>
+    <div>
+      <h1>Checkout Page</h1>
+        <div>
           <label for="name" style={labelStyle}>Full name: </label><br/>
-          <input id="name" type="text" onChange={handleUserName} value={userName} style={inputStyle} required /><br/>
+          <input type="text" id="name" value={username} onChange={handleUserNameChange} style={inputStyle} required /><br/>
+          
           <label for="email" style={labelStyle}>Email: </label><br/>
-          <input id="email" type="email" onChange={handleUserEmail} value={userEmail} style={inputStyle} required />
-          { userName && userEmail &&
+          <input type="email" id="email" value={email} onChange={handleEmailChange} style={emailStyle()} required />
+          {!emailValid && <p style={{ color: 'red' }}>{emailErrorMessage}</p>}
+          
+          { username && emailValid && email &&
           <div>
-            <button type="reset" onClick={handleSubmitClick} style={buttonStyle}>Checkout</button>
+            <button type="reset" onClick={handleSubmit} style={buttonStyle}>Checkout</button>
           </div>
           }
-        </form>
-      </div>
-    </>
+          </div>
+    </div>
   );
 }
-
-export default CheckoutPage;

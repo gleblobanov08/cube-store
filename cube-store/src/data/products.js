@@ -24,6 +24,14 @@ export const products = [
         company: "MoYu"
     },
     {
+        id: 21,
+        img: ["../assets/2-3.jpeg", "../assets/2-4.jpeg"],
+        name: "MoYu Super RS3M",
+        event: "3x3",
+        price: 9,
+        company: "MoYu"
+    },
+    {
         id: 3,
         img: ["../assets/3-1.jpeg", "../assets/3-2.jpeg"],
         name: "QiYi MS",

@@ -8,6 +8,7 @@ nav ul {
     width: 100%;
     display: flex;
     justify-content: space-around;
+    color: var(--text-color);
     a:hover {
         text-decoration: underline;
     }
@@ -18,13 +19,14 @@ nav div {
 
 a {
     text-decoration: none;
-    color: black;
+    color: var(--text-color);
 }
 a.btn {
     padding: 10px;
     border: 1px solid #000;
     border-radius: 5px;
     background-color: lightskyblue;
+    color: black;
 }
 
 .shop-now {
@@ -50,6 +52,7 @@ a.btn {
         margin: 20px 0;
         padding: 30px;
         border: 1px solid gainsboro;
+        border-radius: 10px;
         img {
             width: 200px;
             height: 200px;
@@ -67,6 +70,7 @@ a.btn {
         padding: 20px;
         width: 60%;
         border: 1px solid gainsboro;
+        border-radius: 5px;
         font-size: 24px;
         img {
             width: 90%;

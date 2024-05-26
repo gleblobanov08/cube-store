@@ -1,3 +1,13 @@
+:root {
+  --body-background: white;
+  --body-color: black;
+}
+
+[data-theme="dark"] {
+  --body-background: #282c34;
+  --body-color: white;
+}
+
 body {
   margin: 0;
   padding: 0;

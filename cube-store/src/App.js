@@ -8,10 +8,11 @@ import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
 import Footer from './components/Footer';
 import { CartProvider } from './components/CartContext';
+import './styles/theme.css';
 
 function App() {
   return (
-    <CartProvider> {/* Wrap the entire app with CartProvider */}
+    <CartProvider>
       <BrowserRouter>
         <Header />
         <Routes>

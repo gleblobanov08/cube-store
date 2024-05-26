@@ -27,7 +27,8 @@
     float: left;
     button {
         background: transparent;
-        color: black;
+        border: none;
+        color: var(--text-color);
         font-size: 20px;
     }
 }
@@ -57,13 +58,14 @@
 
 .amountBtn {
     padding: 4px 10px;
-    border: 1px solid #000;
+    border: 1px solid var(--text-color);
     border-radius: 5px;
     background-color: transparent;
-    color: #000;
+    color: var(--text-color);
     font-size: 18px;
 }
 
 .actionBtn {
     text-decoration: underline;
+    color: var(--text-color);
 }
