@@ -17,6 +17,14 @@ nav div {
     width: 100%;
 }
 
+.theme-switcher {
+    color: var(--text-color);
+    background: lightskyblue;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
 a {
     text-decoration: none;
     color: var(--text-color);

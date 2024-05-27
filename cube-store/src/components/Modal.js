@@ -23,7 +23,7 @@ export default function Modal({ isOpen, onClose, message }) {
     borderRadius: '20px',
     background: 'white',
     color: 'black',
-    fontSize: '1.5rem',
+    fontSize: '1.2rem',
     position: 'relative',
   };
 
@@ -38,28 +38,9 @@ export default function Modal({ isOpen, onClose, message }) {
     cursor: 'pointer',
   };
 
-  const responsiveFontSize = `
-    @media (max-width: 600px) {
-      .modal-content {
-        font-size: 1.2rem;
-      }
-    }
-    @media (min-width: 600px) and (max-width: 1200px) {
-      .modal-content {
-        font-size: 1.5rem;
-      }
-    }
-    @media (min-width: 1200px) {
-      .modal-content {
-        font-size: 2rem;
-      }
-    }
-  `;
-
   return (
     isOpen && (
       <div className="modal-overlay" style={overlayStyle} onClick={onClose}>
-        <style>{responsiveFontSize}</style>
         <div className="modal" style={contentStyle} onClick={(e) => e.stopPropagation()}>
           <div className="modal-content">
             <button onClick={onClose} style={buttonStyle}>X</button>
