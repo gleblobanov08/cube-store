@@ -18,6 +18,7 @@ nav div {
 }
 
 .theme-switcher {
+    width: 60px;
     color: var(--text-color);
     background: lightskyblue;
     border: none;

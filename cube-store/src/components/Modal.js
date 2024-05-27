@@ -23,7 +23,7 @@ export default function Modal({ isOpen, onClose, message }) {
     borderRadius: '20px',
     background: 'white',
     color: 'black',
-    fontSize: '1.2rem',
+    fontSize: '1rem',
     position: 'relative',
   };
 
