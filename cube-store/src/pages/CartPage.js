@@ -32,22 +32,24 @@ export default function CartPage() {
           <div className={styles.cartItem} key={index}>
             <div className={styles.cartGrid}>
               <div>
-              <img src={item.product.img[0]} alt='cartimg' />
+                <img src={item.product.img[0]} alt='cartimg' />
               </div>
               <div>
-              <h4>{item.product.name} <br/><br/> ${calculateTotalPrice(item)}</h4>
-              <ul>
-                {item.extras.map((extra, idx) => (
-                  extra.selected &&
-                  <>
-                  <li key={idx} style={{listStyleType: 'none', textAlign: 'left', paddingLeft: '20px'}}>+ {extra.name} (${extra.price})</li>
-                  </>
-                ))}
-              </ul>
+                <h4>{item.product.name} <br/><br/> ${calculateTotalPrice(item)}</h4>
               </div>
-            </div><br/>
-            <div>
-              <button onClick={() => removeFromCart(index)} style={{margin: "0 auto"}}><FontAwesomeIcon icon={faTrash} /></button>
+              <div className={styles.extra}>
+                <ul>
+                  {item.extras.map((extra, idx) => (
+                    extra.selected &&
+                    <>
+                    <li key={idx} style={{listStyleType: 'none', textAlign: 'left', paddingLeft: '20px'}}>+ {extra.name} (${extra.price})</li>
+                    </>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <button onClick={() => removeFromCart(index)} style={{margin: "0 auto"}}><FontAwesomeIcon icon={faTrash} /></button>
+              </div>
             </div>
           </div>
         ))}

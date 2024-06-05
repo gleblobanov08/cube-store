@@ -9,8 +9,6 @@
     color: black;
     .cartGrid {
         display: grid;
-        grid-template-columns: 2fr 3fr;
-        justify-content: space-around;
         align-items: center;
     }
     button {
@@ -38,16 +36,24 @@ h3 a {
 }
 
 img {
-    width: 140px;
-    height: 140px;
+    width: 150px;
+    height: 150px;
+}
+
+@media screen and (min-width: 768px) {
+    .cartGrid {
+        grid-template-columns: 2fr 3fr;
+        justify-content: space-around;
+    }
 }
 
 @media only screen and (max-width: 768px) {
     .cartGrid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template: 200px 1fr / 100%;
+        grid-auto-rows: 10%;
+        gap: 10px;
         ul {
-            font-size: 12px;
+            font-size: 14px;
         }
     }
     
