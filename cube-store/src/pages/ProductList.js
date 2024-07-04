@@ -7,7 +7,7 @@ export default function ProductList () {
   const [selectedFilters, setSelectedFilters] = useState([]);
   const [selectedCompanies, setSelectedCompanies] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState(products);
-  let filters = ["2x2", "3x3", "4x4", "sq-1", "mega"];
+  let filters = ["2x2", "3x3", "4x4", "sq-1", "mega", "non-wca"];
   let companies = ["GAN", "MoYu", "QiYi", "YJ"];
 
   const handleFilterClick = (selectedEvent) => {

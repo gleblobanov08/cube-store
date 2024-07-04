@@ -94,5 +94,21 @@ export const products = [
         event: "mega",
         price: 10,
         company: "QiYi"
+    },
+    {
+        id: 81,
+        img: ["../assets/8-3.jpeg", "../assets/8-4.jpeg"],
+        name: "MFJS Meilong Megaminx M",
+        event: "mega",
+        price: 13,
+        company: "MoYu"
+    },
+    {
+        id: 9,
+        img: ["../assets/9-1.jpeg", "../assets/9-2.jpeg"],
+        name: "QiYi MoFangGe Master Pyraminx",
+        event: "non-wca",
+        price: 16,
+        company: "QiYi"
     }
 ];
