@@ -55,6 +55,7 @@ export default function ProductList () {
         tempCubes = tempCubes.filter((item) => selectedCompanies.includes(item.company));
       }
       setFilteredProducts(tempCubes);
+      setCurrentPage(1);
     } else {
       setFilteredProducts([...products]);
     }
